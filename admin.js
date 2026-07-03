@@ -61,9 +61,9 @@ function resetForm() {
   currentProductId = null;
   currentImageUrl = '';
   imagePreviewWrapper.classList.add('hidden');
-  formHeading.textContent = 'Добавить новый товар';
+  formHeading.textContent = 'Додати новий товар';
   cancelEdit.classList.add('hidden');
-  saveButton.textContent = 'Сохранить';
+  saveButton.textContent = 'Зберегти';
 }
 
 function createProductCard(product) {
@@ -77,10 +77,10 @@ function createProductCard(product) {
         <span class="price">${formatMoney(product.price)} грн</span>
         <span class="stock">${product.stock} шт.</span>
       </div>
-      <p class="desc">${product.description || 'Описание отсутствует'}</p>
+      <p class="desc">${product.description || 'Опис відсутній'}</p>
       <div class="card-actions admin-actions">
-        <button type="button" class="button button-primary" data-action="edit" data-id="${product.id}">Редактировать</button>
-        <button type="button" class="button button-secondary" data-action="delete" data-id="${product.id}">Удалить</button>
+        <button type="button" class="button button-primary" data-action="edit" data-id="${product.id}">Редагувати</button>
+        <button type="button" class="button button-secondary" data-action="delete" data-id="${product.id}">Видалити</button>
       </div>
     </div>
   `;
@@ -135,9 +135,9 @@ function fillFormForEdit(product) {
   imagePreview.src = product.image;
   imagePreview.alt = product.name;
   imagePreviewWrapper.classList.remove('hidden');
-  formHeading.textContent = 'Редактировать товар';
+  formHeading.textContent = 'Редагувати товар';
   cancelEdit.classList.remove('hidden');
-  saveButton.textContent = 'Обновить';
+  saveButton.textContent = 'Оновити';
 }
 
 async function handleEditRequest(productId) {
@@ -151,7 +151,7 @@ async function handleEditRequest(productId) {
 }
 
 async function handleDeleteRequest(productId) {
-  const confirmed = confirm('Удалить этот товар навсегда?');
+  const confirmed = confirm('Видалити цей товар назавжди?');
   if (!confirmed) {
     return;
   }
@@ -159,8 +159,8 @@ async function handleDeleteRequest(productId) {
   try {
     await deleteProduct(productId);
   } catch (error) {
-    console.error('Ошибка удаления товара:', error);
-    alert('Не удалось удалить товар. Попробуйте ещё раз.');
+    console.error('Помилка видалення товару:', error);
+    alert('Не вдалося видалити товар. Спробуйте ще раз.');
   }
 }
 
@@ -206,11 +206,11 @@ loginForm.addEventListener('submit', async (event) => {
     await signInUser(email, password);
   } catch (error) {
     if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
-      showAuthError('Неверный пароль');
+      showAuthError('Невірний пароль');
       return;
     }
-    showAuthError('Ошибка входа. Проверьте данные и попробуйте снова.');
-    console.error('Ошибка авторизации:', error);
+    showAuthError('Помилка входу. Перевірте дані та спробуйте ще раз.');
+    console.error('Помилка авторизації:', error);
   }
 });
 
@@ -228,17 +228,17 @@ productForm.addEventListener('submit', async (event) => {
   const file = productImage.files[0];
 
   if (!name || !price || Number.isNaN(price) || price <= 0) {
-    alert('Введите корректное название и цену.');
+    alert('Введіть коректну назву та ціну.');
     return;
   }
 
   if (Number.isNaN(stock) || stock < 0) {
-    alert('Введите корректное количество.');
+    alert('Введіть коректну кількість.');
     return;
   }
 
   saveButton.disabled = true;
-  saveButton.textContent = currentProductId ? 'Сохраняем...' : 'Сохраняем...';
+  saveButton.textContent = currentProductId ? 'Зберігаємо...' : 'Зберігаємо...';
 
   try {
     let imageUrl = currentImageUrl;
@@ -261,9 +261,9 @@ productForm.addEventListener('submit', async (event) => {
       await updateProduct(currentProductId, productData);
     } else {
       if (!imageUrl) {
-        alert('Пожалуйста, загрузите фотографию товара.');
+        alert('Будь ласка, завантажте фото товару.');
         saveButton.disabled = false;
-        saveButton.textContent = currentProductId ? 'Обновить' : 'Сохранить';
+        saveButton.textContent = currentProductId ? 'Оновити' : 'Зберегти';
         return;
       }
       await addProduct(productData);
@@ -271,11 +271,12 @@ productForm.addEventListener('submit', async (event) => {
 
     resetForm();
   } catch (error) {
-    console.error('Ошибка сохранения товара:', error);
-    alert('Не удалось сохранить товар. Попробуйте еще раз.');
+    console.error('Помилка збереження товару:', error);
+    const message = error?.message ? `Помилка: ${error.message}` : 'Спробуйте ще раз.';
+    alert(`Не вдалося зберегти товар. ${message}`);
   } finally {
     saveButton.disabled = false;
-    saveButton.textContent = currentProductId ? 'Обновить' : 'Сохранить';
+    saveButton.textContent = currentProductId ? 'Оновити' : 'Зберегти';
   }
 });
 
@@ -289,7 +290,7 @@ function handleProductSnapshot(snapshot) {
 }
 
 function handleProductSnapshotError(error) {
-  console.error('Ошибка загрузки списка товаров:', error);
+  console.error('Помилка завантаження списку товарів:', error);
 }
 
 onAuthChange((user) => {

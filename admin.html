@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Админка — Масяня</title>
+  <title>Адмінка — Масяня</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="admin.js" defer></script>
 </head>
@@ -11,8 +11,8 @@
   <header class="site-header admin-header">
     <div class="header-inner">
       <div>
-        <p class="eyebrow">Панель управления</p>
-        <h1>Масяня — админка</h1>
+        <p class="eyebrow">Панель керування</p>
+        <h1>Масяня — адмінка</h1>
       </div>
       <a class="admin-link" href="index.html">На сайт</a>
     </div>
@@ -21,16 +21,16 @@
   <main class="page-shell admin-shell">
     <section id="authPanel" class="auth-panel">
       <div class="auth-card">
-        <h2>Вход в админ-панель</h2>
-        <p>Введите email и пароль администратора.</p>
+        <h2>Вхід до адмінки</h2>
+        <p>Введіть email та пароль адміністратора.</p>
         <form id="loginForm">
           <label for="email">Email</label>
           <input id="email" type="email" required placeholder="admin@masyanya.example">
 
           <label for="password">Пароль</label>
-          <input id="password" type="password" required placeholder="Введите пароль">
+          <input id="password" type="password" required placeholder="Введіть пароль">
 
-          <button type="submit" class="button button-primary">Войти</button>
+          <button type="submit" class="button button-primary">Увійти</button>
           <div id="authError" class="auth-error hidden"></div>
         </form>
       </div>
@@ -39,36 +39,36 @@
     <section id="adminPanel" class="admin-panel hidden">
       <div class="admin-top">
         <div class="admin-status">
-          <p>Вы в админке. Здесь можно управлять товарами.</p>
+          <p>Ви в адмін-панелі. Тут можна керувати товарами.</p>
         </div>
-        <button id="logoutButton" class="button button-secondary">Выйти</button>
+        <button id="logoutButton" class="button button-secondary">Вийти</button>
       </div>
 
       <div class="admin-grid">
         <div class="admin-card admin-form-card">
-          <h2 id="formHeading">Добавить новый товар</h2>
+          <h2 id="formHeading">Додати новий товар</h2>
           <form id="productForm">
-            <label for="productName">Название</label>
-            <input id="productName" type="text" required placeholder="Например, Розовый шарик">
+            <label for="productName">Назва</label>
+            <input id="productName" type="text" required placeholder="Наприклад, Рожевий кулька">
 
-            <label for="productPrice">Цена, грн</label>
+            <label for="productPrice">Ціна, грн</label>
             <input id="productPrice" type="number" required min="1" placeholder="100">
 
-            <label for="productStock">Количество</label>
+            <label for="productStock">Кількість</label>
             <input id="productStock" type="number" required min="0" placeholder="10">
 
-            <label for="productDescription">Описание</label>
-            <textarea id="productDescription" rows="4" placeholder="Описание товара"></textarea>
+            <label for="productDescription">Опис</label>
+            <textarea id="productDescription" rows="4" placeholder="Опис товару"></textarea>
 
-            <label for="productImage">Фотография</label>
+            <label for="productImage">Фото</label>
             <input id="productImage" type="file" accept="image/*">
             <div class="image-preview hidden" id="imagePreviewWrapper">
-              <img id="imagePreview" src="" alt="Превью изображения">
+              <img id="imagePreview" src="" alt="Попередній перегляд зображення">
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="button button-primary" id="saveButton">Сохранить</button>
-              <button type="button" class="button button-secondary hidden" id="cancelEdit">Отмена</button>
+              <button type="submit" class="button button-primary" id="saveButton">Зберегти</button>
+              <button type="button" class="button button-secondary hidden" id="cancelEdit">Скасувати</button>
             </div>
           </form>
         </div>
@@ -76,18 +76,18 @@
         <div class="admin-card admin-list-card">
           <div class="list-header">
             <div>
-              <h2>Товары</h2>
-              <p>Нажмите на товар, чтобы отредактировать или удалить.</p>
+              <h2>Товари</h2>
+              <p>Натисніть на товар, щоб відредагувати або видалити.</p>
             </div>
             <div class="list-controls">
-              <label for="adminSearch">Поиск</label>
-              <input id="adminSearch" type="search" placeholder="По названию...">
-              <label for="adminSort">Сортировка</label>
+              <label for="adminSearch">Пошук</label>
+              <input id="adminSearch" type="search" placeholder="За назвою...">
+              <label for="adminSort">Сортування</label>
               <select id="adminSort">
-                <option value="name">По названию</option>
-                <option value="priceAsc">Цена ↑</option>
-                <option value="priceDesc">Цена ↓</option>
-                <option value="stock">По наличию</option>
+                <option value="name">За назвою</option>
+                <option value="priceAsc">Ціна ↑</option>
+                <option value="priceDesc">Ціна ↓</option>
+                <option value="stock">За наявністю</option>
               </select>
             </div>
           </div>
@@ -95,8 +95,8 @@
           <div id="productList" class="product-list"></div>
           <div id="adminEmpty" class="empty-state hidden">
             <div class="empty-card">
-              <h2>Список товаров пуст</h2>
-              <p>Добавьте первый шарик через форму слева.</p>
+              <h2>Список товарів порожній</h2>
+              <p>Додайте першу кульку через форму зліва.</p>
             </div>
           </div>
         </div>

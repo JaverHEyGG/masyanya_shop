@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Масяня — магазин шариков</title>
+  <title>Масяня — магазин кульок</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="script.js" defer></script>
 </head>
@@ -11,27 +11,27 @@
   <header class="site-header">
     <div class="header-inner">
       <div>
-        <p class="eyebrow">Интернет-магазин воздушных шариков</p>
+        <p class="eyebrow">Інтернет-магазин повітряних кульок</p>
         <h1>Масяня</h1>
-        <p class="hero-text">Яркие шарики для праздника. Быстрая доставка по всей Украине.</p>
+        <p class="hero-text">Яскраві кульки для свята та особливих моментів.</p>
       </div>
-      <a class="admin-link" href="admin.html">Админка</a>
+      <a class="admin-link" href="admin.html">Адмінка</a>
     </div>
   </header>
 
   <main class="page-shell">
     <section class="controls">
       <div class="search-wrap">
-        <label for="search">Поиск</label>
-        <input id="search" type="search" placeholder="По названию...">
+        <label for="search">Пошук</label>
+        <input id="search" type="search" placeholder="За назвою...">
       </div>
       <div class="sort-wrap">
-        <label for="sort">Сортировка</label>
+        <label for="sort">Сортування</label>
         <select id="sort">
-          <option value="name">По названию</option>
-          <option value="priceAsc">Цена ↑</option>
-          <option value="priceDesc">Цена ↓</option>
-          <option value="stock">По наличию</option>
+          <option value="name">За назвою</option>
+          <option value="priceAsc">Ціна ↑</option>
+          <option value="priceDesc">Ціна ↓</option>
+          <option value="stock">За наявністю</option>
         </select>
       </div>
     </section>
@@ -40,8 +40,8 @@
 
     <section id="emptyState" class="empty-state hidden">
       <div class="empty-card">
-        <h2>Товары ещё не добавлены</h2>
-        <p>Перейдите в админ-панель, чтобы загрузить первые шарики.</p>
+        <h2>Товари ще не додані</h2>
+        <p>Перейдіть до адмін-панелі, щоб додати перші кульки.</p>
       </div>
     </section>
   </main>
@@ -49,8 +49,8 @@
   <div id="productModal" class="modal hidden" aria-hidden="true">
     <div class="modal-backdrop" data-close="true"></div>
     <div class="modal-card">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть">×</button>
-      <img id="modalImage" src="" alt="Фото товара">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Закрити">×</button>
+      <img id="modalImage" src="" alt="Фото товару">
       <div class="modal-content">
         <h2 id="modalTitle"></h2>
         <div class="modal-meta">

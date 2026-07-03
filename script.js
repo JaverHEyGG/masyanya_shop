@@ -25,11 +25,11 @@ function createCard(product) {
       <h2 class="card-title">${escapeHtml(product.name)}</h2>
       <div class="card-meta">
         <span class="price">${formatMoney(product.price)} грн</span>
-        <span class="stock">В наличии: ${product.stock}</span>
+        <span class="stock">В наявності: ${product.stock}</span>
       </div>
-      <p class="desc">${escapeHtml(product.description || 'Описание отсутствует')}</p>
+      <p class="desc">${escapeHtml(product.description || 'Опис відсутній')}</p>
       <div class="card-actions">
-        <button type="button" class="button button-primary" data-id="${product.id}">Подробнее</button>
+        <button type="button" class="button button-primary" data-id="${product.id}">Детальніше</button>
       </div>
     </div>
   `;
@@ -93,8 +93,8 @@ function openProductModal(product) {
   modalImage.alt = product.name;
   modalTitle.textContent = product.name;
   modalPrice.textContent = `${formatMoney(product.price)} грн`;
-  modalStock.textContent = `В наличии: ${product.stock}`;
-  modalDescription.textContent = product.description || 'Описание отсутствует';
+  modalStock.textContent = `В наявності: ${product.stock}`;
+  modalDescription.textContent = product.description || 'Опис відсутній';
   productModal.classList.remove('hidden');
   productModal.setAttribute('aria-hidden', 'false');
 }
@@ -111,8 +111,8 @@ function handleSnapshot(snapshot) {
 }
 
 function handleSnapshotError(error) {
-  console.error('Ошибка загрузки товаров:', error);
-  productsNode.innerHTML = `<div class="empty-state"><div class="empty-card"><h2>Ошибка загрузки данных</h2><p>Пожалуйста, обновите страницу или проверьте подключение.</p></div></div>`;
+  console.error('Помилка завантаження товарів:', error);
+  productsNode.innerHTML = `<div class="empty-state"><div class="empty-card"><h2>Помилка завантаження даних</h2><p>Будь ласка, оновіть сторінку або перевірте підключення.</p></div></div>`;
 }
 
 searchInput.addEventListener('input', renderProducts);

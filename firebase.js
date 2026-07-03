@@ -28,7 +28,7 @@ const firebaseConfig = {
   apiKey: 'AIzaSyDcikMLz2qowsr3bfbxQAGoTrZDzvkhVrQ',
   authDomain: 'masyanya-sho.firebaseapp.com',
   projectId: 'masyanya-sho',
-  storageBucket: 'masyanya-sho.firebasestorage.app',
+  storageBucket: 'masyanya-sho.appspot.com',
   messagingSenderId: '1071979327562',
   appId: '1:1071979327562:web:a40a96a24f955d568d76b3'
 };
