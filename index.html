@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Масяня — магазин шариков</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Интернет-магазин воздушных шариков</p>
+        <h1>Масяня</h1>
+        <p class="hero-text">Яркие шарики для праздника. Быстрая доставка по всей Украине.</p>
+      </div>
+      <a class="admin-link" href="admin.html">Админка</a>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="controls">
+      <div class="search-wrap">
+        <label for="search">Поиск</label>
+        <input id="search" type="search" placeholder="По названию...">
+      </div>
+      <div class="sort-wrap">
+        <label for="sort">Сортировка</label>
+        <select id="sort">
+          <option value="name">По названию</option>
+          <option value="priceAsc">Цена ↑</option>
+          <option value="priceDesc">Цена ↓</option>
+          <option value="stock">По наличию</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="products" class="grid"></section>
+
+    <section id="emptyState" class="empty-state hidden">
+      <div class="empty-card">
+        <h2>Товары ещё не добавлены</h2>
+        <p>Перейдите в админ-панель, чтобы загрузить первые шарики.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="productModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть">×</button>
+      <img id="modalImage" src="" alt="Фото товара">
+      <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta">
+          <span id="modalPrice"></span>
+          <span id="modalStock"></span>
+        </div>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
